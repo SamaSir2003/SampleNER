@@ -12,9 +12,6 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import dj_database_url
-
-
-
 import os
 
 MEDIA_URL = '/'
@@ -30,14 +27,9 @@ RESULTS_DIR = os.path.join(BASE_DIR, 'tagproject', 'results')
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-jx@%at4ev*09a_0ui1z7iw0+*tu629r_1oxy$8i0ygq72btp8h'
-
-# SECURITY WARNING: don't run with debug turned on in production!
+SECRET_KEY = os.getenv("SECRET_KEY", "your-default-secret-key")
 DEBUG = os.getenv("DEBUG", "False") == "True"
-
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
-
-
 # Application definition
 
 INSTALLED_APPS = [
